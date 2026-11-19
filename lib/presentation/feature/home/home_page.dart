@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
     _loadExpenses();
   }
 
-  // Load Expenses from Database
   Future<void> _loadExpenses() async {
     List<Expense> expenseFromDatabase =
     await DatabaseHelper.getExpenses();
@@ -33,7 +32,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // Calculate Total Expenses
   double get _totalExpenses {
     double total = 0;
 
@@ -44,7 +42,6 @@ class _HomePageState extends State<HomePage> {
     return total;
   }
 
-  // Go to Add Expense Screen
   Future<void> _goToAddExpense() async {
     await Navigator.of(context).push(
       MaterialPageRoute(
@@ -55,7 +52,6 @@ class _HomePageState extends State<HomePage> {
     _loadExpenses();
   }
 
-  // Delete Expense
   Future<void> _deleteExpense(int id) async {
     await DatabaseHelper.deleteExpense(id);
 
@@ -80,8 +76,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            // Total Expenses Card
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -115,8 +109,6 @@ class _HomePageState extends State<HomePage> {
             ),
 
             const SizedBox(height: 20),
-
-            // Expense List Title
             const Text(
               'All Expenses',
               style: TextStyle(
@@ -126,8 +118,6 @@ class _HomePageState extends State<HomePage> {
             ),
 
             const SizedBox(height: 10),
-
-            // Display All Expenses
             Expanded(
               child: _expenses.isEmpty
                   ? const Center(
@@ -171,8 +161,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-
-      // Add Expense Button
       floatingActionButton: FloatingActionButton(
         onPressed: _goToAddExpense,
         backgroundColor: Colors.teal,

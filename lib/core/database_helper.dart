@@ -4,7 +4,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:expense_tracker/core/expense.dart';
 
 class DatabaseHelper {
-  // Open Database
   static Future<Database> getDatabase() async {
     String folder = await getDatabasesPath();
     String path = join(folder, 'expense_tracker.db');
@@ -24,7 +23,6 @@ class DatabaseHelper {
     );
   }
 
-  // Add Expense
   static Future<void> insertExpense(Expense expense) async {
     final db = await getDatabase();
 
@@ -34,7 +32,6 @@ class DatabaseHelper {
     );
   }
 
-  // Get All Expenses
   static Future<List<Expense>> getExpenses() async {
     final db = await getDatabase();
 
@@ -52,7 +49,6 @@ class DatabaseHelper {
     return expenses;
   }
 
-  // Delete Expense
   static Future<void> deleteExpense(int id) async {
     final db = await getDatabase();
 

@@ -21,7 +21,6 @@ class _AddExpensePageState extends State<AddExpensePage> {
     super.dispose();
   }
 
-  // Add Expense
   Future<void> addExpense() async {
     double? amount = double.tryParse(
       amountController.text.trim(),
@@ -49,13 +48,10 @@ class _AddExpensePageState extends State<AddExpensePage> {
 
     Navigator.of(context).pop();
   }
-
-  // Save Button Pressed
   void saveButtonPressed() {
     addExpense();
   }
 
-  // Show Message
   void showMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
